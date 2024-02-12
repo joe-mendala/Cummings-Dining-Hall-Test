@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IC Dining</title>
     <style>
+        #header {
+            text-align: center; /* Center align the text */
+            margin-bottom: 20px; /* Add some space below the header */
+        }
         #service-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the buttons horizontally */
             margin-bottom: 20px; /* Add some space between buttons and other content */
         }
         button {
             font-size: 1.25em; /* Increase button size */
-            margin-right: 10px; /* Add space between buttons */
+            margin: 5px; /* Add margin around buttons */
             width: 10%; /* Set button width to 30% of parent container */
-            margin-bottom: 10px; /* Add space between buttons on mobile devices */
         }
 
         @media (max-width: 768px) {
@@ -23,7 +29,7 @@
     </style>
 </head>
 <body>
-    <h1>Cummings Dining Hall</h1>
+    <h1 id="header">Cummings Dining Hall</h1>
     <!-- Container for service buttons -->
     <div id="service-buttons"></div>
 
