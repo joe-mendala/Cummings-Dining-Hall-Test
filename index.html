@@ -83,7 +83,7 @@
                     const event = events.find(event => event.summary === service.name);
                     if (event) {
                         const serviceButton = document.createElement('button');
-                        serviceButton.textContent = service.name;
+                        serviceButton.textContent = service.name.split(' ')[0]; // Display only the first word of the service name
                         serviceButton.addEventListener('click', () => {
                             displayMenu(event);
                             document.getElementById('viewing-header').textContent = `*Viewing ${service.name}*`;
