@@ -11,6 +11,14 @@
         button {
             font-size: 1.25em; /* Increase button size */
             margin-right: 10px; /* Add space between buttons */
+            width: 10%; /* Set button width to 30% of parent container */
+            margin-bottom: 10px; /* Add space between buttons on mobile devices */
+        }
+
+        @media (max-width: 768px) {
+            button {
+                width: 45%; /* Adjust button width for smaller screens */
+            }
         }
     </style>
 </head>
