@@ -41,6 +41,7 @@
             max-width: 150px; /* Set max width for buttons */
             white-space: normal; /* Allow wrapping of button text */
             overflow-wrap: break-word; /* Wrap long words in button text */
+            flex-basis: 50%; /* Set button width to 50% of container */
         }
         #menu-box {
             border: 1px solid #ccc; /* Add border around menu box */
@@ -50,9 +51,16 @@
             text-align: left; /* Align text inside menu box to the left */
         }
 
+        @media (max-width: 1024px) {
+            #top-section, #menu-box {
+                width: 90%; /* Adjust width for smaller screens */
+                margin: 0 auto 20px auto; /* Center align and add margin */
+            }
+        }
+
         @media (max-width: 768px) {
-            button {
-                width: 45%; /* Adjust button width for smaller screens */
+            #top-section, #menu-box {
+                width: 95%; /* Adjust width for even smaller screens */
             }
         }
     </style>
