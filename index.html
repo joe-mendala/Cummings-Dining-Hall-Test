@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IC Dining</title>
     <style>
+        #top-section {
+            border: 1px solid #ccc; /* Add border around top section */
+            padding: 10px; /* Add padding inside top section */
+            width: 60%; /* Set width of top section */
+            margin: 0 auto; /* Center align the top section */
+            margin-bottom: 20px; /* Add some space below the top section */
+            text-align: center; /* Center align text inside the top section */
+        }
         #next-service {
             text-align: center; /* Center align the text */
             margin-bottom: 20px; /* Add some space below the header */
@@ -30,7 +38,16 @@
         button {
             font-size: 1.25em; /* Increase button size */
             margin: 5px; /* Add margin around buttons */
-            width: 10%; /* Set button width to 30% of parent container */
+            max-width: 150px; /* Set max width for buttons */
+            white-space: normal; /* Allow wrapping of button text */
+            overflow-wrap: break-word; /* Wrap long words in button text */
+        }
+        #menu-box {
+            border: 1px solid #ccc; /* Add border around menu box */
+            padding: 10px; /* Add padding inside menu box */
+            width: 60%; /* Set width of menu box */
+            margin: 0 auto; /* Center align the menu box */
+            text-align: left; /* Align text inside menu box to the left */
         }
 
         @media (max-width: 768px) {
@@ -42,12 +59,18 @@
 </head>
 <body>
     <h1 id="header">Cummings Dining Hall</h1>
+
+    <div id="top-section">
+        <div id="currently"></div>
+        <div id="viewing-header"></div> <!-- New header for viewing current menu -->
+    </div>
+
     <!-- Container for service buttons -->
     <div id="service-buttons"></div>
 
-    <div id="currently"></div>
-    <div id="viewing-header"></div> <!-- New header for viewing current menu -->
-    <div id="menu"></div>
+    <div id="menu-box">
+        <div id="menu"></div>
+    </div>
     <div id="next-service"></div>
 
     <script>
