@@ -86,7 +86,7 @@
         const apiKey = 'AIzaSyAgGt_ZjpjvBYI1r1Zus0OWUo1Qrf14GEU';
 
         // ID of the Google Calendar you want to fetch events from
-        const calendarId = 'mail.ic.edu_fpdm731abrq0a6d64hv5v8992c@group.calendar.google.com';
+        const calendarId = 'appdeveloper@ic.edu';
 
         // Adjust current date to Central Time
         const currentDateTime = new Date();
@@ -123,14 +123,14 @@
         }
 
         function displayMenu(event) {
-    console.log("Event:", event); // Log the event object to the console
-    if (event && event.description) {
-        console.log("Event Description:", event.description); // Log the event description
-        document.getElementById('menu').innerHTML = `<h2>Menu:</h2>${event.description}`;
-    } else {
-        document.getElementById('menu').innerHTML = `<p>Closed</p>`;
-    }
-}
+            console.log("Event:", event); // Log the event object to the console
+                if (event && event.description) {
+                    console.log("Event Description:", event.description); // Log the event description
+                    document.getElementById('menu').innerHTML = `<h2>Menu:</h2>${event.description}`;
+                } else {
+                    document.getElementById('menu').innerHTML = `<p>Closed</p>`;
+            }
+        }
 
         function findCurrentService(hoursArray) {
             return hoursArray.find(service => {
@@ -164,11 +164,13 @@
 
                     if (currentService) {
                         document.getElementById('currently').innerHTML = `<h2>Currently: ${currentService.name} (until ${to12HourFormat(currentService.endTime)})</h2>`;
-                        const currentEvent = events.find(event => event.summary === currentService.name);
+                        const currentEvent = events.find(event => event.summary.trim().replace(/\s+/g, ' ') === currentService.name.trim().replace(/\s+/g, ' ')); //This checks for and removes extra spaces in between the words of the event name
+                        console.log("Current Event:", currentEvent); // Add this line to check currentEvent
                         displayMenu(currentEvent);
                     } else {
                         document.getElementById('currently').innerHTML = `<p>No services currently available.</p>`;
                     }
+
 
                     if (nextService) {
                         document.getElementById('next-service').innerHTML = `<h2>Next Service</h2><p>${nextService.name} (Opens at ${to12HourFormat(nextService.startTime)})</p>`;
@@ -177,7 +179,7 @@
                     }
 
                     hoursArray.forEach(service => {
-                        const event = events.find(event => event.summary === service.name);
+                        const event = events.find(event => event.summary.trim().replace(/\s+/g, ' ') === service.name.trim().replace(/\s+/g, ' '));
                         if (event) {
                             const serviceButton = document.createElement('button');
                             serviceButton.textContent = service.name.split(' ')[0];
@@ -188,6 +190,7 @@
                             document.getElementById('service-buttons').appendChild(serviceButton);
                         }
                     });
+
                 })
                 .catch(error => {
                     console.error('Error fetching events:', error);
