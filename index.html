@@ -37,7 +37,7 @@
         }
         button {
             font-size: 1.25em; /* Increase button size */
-            margin: 5px; /* Add margin around buttons */
+            margin: 10px; /* Add margin around buttons */
             max-width: 150px; /* Set max width for buttons */
             white-space: normal; /* Allow wrapping of button text */
             overflow-wrap: break-word; /* Wrap long words in button text */
@@ -45,10 +45,14 @@
         }
         #menu-box {
             border: 1px solid #ccc; /* Add border around menu box */
-            padding: 10px; /* Add padding inside menu box */
+            padding: 5px; /* Add padding inside menu box */
             width: 60%; /* Set width of menu box */
             margin: 0 auto; /* Center align the menu box */
             text-align: left; /* Align text inside menu box to the left */
+        }
+        #location {
+            text-align: center; /* Right-align the text location */
+            margin-bottom: 10px; /* Add space below the location*/
         }
 
         @media (max-width: 1024px) {
@@ -68,6 +72,7 @@
 <body>
     <h1 id="header">Cummings Dining Hall</h1>
 
+    <div id="location">Location: Caine Student Center</div>
     <div id="top-section">
         <div id="currently"></div>
         <div id="viewing-header"></div> <!-- New header for viewing current menu -->
@@ -128,7 +133,7 @@
                     console.log("Event Description:", event.description); // Log the event description
                     document.getElementById('menu').innerHTML = `<h2>Menu:</h2>${event.description}`;
                 } else {
-                    document.getElementById('menu').innerHTML = `<p>Closed</p>`;
+                    document.getElementById('menu').innerHTML = `<p>Closed Now</p>`;
             }
         }
 
