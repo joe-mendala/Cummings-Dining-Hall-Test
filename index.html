@@ -209,7 +209,7 @@
                             serviceButton.textContent = service.name.split(' ')[0];
                             serviceButton.addEventListener('click', () => {
                                 displayMenu(event);
-                                document.getElementById('viewing-header').textContent = `*Viewing ${service.name}*`;
+                                document.getElementById('viewing-header').textContent = `(Viewing ${service.name})`;
                             });
                             document.getElementById('service-buttons').appendChild(serviceButton);
                         }
