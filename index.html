@@ -157,13 +157,12 @@
         }
 
         function findCurrentService(hoursArray) {
-            return hoursArray.find(service => {
-                const startTime = new Date(`${formattedToday}T${service.startTime}:00-06:00`);
-                const endTime = new Date(`${formattedToday}T${service.endTime}:00-06:00`);
-                return currentDateTimeCentral >= startTime && currentDateTimeCentral < endTime;
-            });
+    return hoursArray.find(service => {
+        const startTime = new Date(`${formattedToday}T${service.startTime}:00`);
+        const endTime = new Date(`${formattedToday}T${service.endTime}:00`);
+        return currentDateTimeCentral >= startTime && currentDateTimeCentral < endTime;
+    });
         }
-
         function findNextService(hoursArray) {
             return hoursArray.find(service => {
                 const startTime = new Date(`${formattedToday}T${service.startTime}:00-06:00`);
